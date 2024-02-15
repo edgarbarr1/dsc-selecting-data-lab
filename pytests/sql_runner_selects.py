@@ -6,8 +6,8 @@ class SQLRunnerSelects:
         self.cursor = self.connection.cursor()
 
     def execute_create_file(self):
-        file = open("./create_select.sql", "r")
-        sql = file.read()
+        with open("./create_select.sql", "r") as file:
+            sql = file.read()
         table = self.cursor.execute(sql)
         return table
 
